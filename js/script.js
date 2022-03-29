@@ -1,3 +1,4 @@
+const countEl = document.querySelector('.count')
 const typingText = document.querySelector(".typing-text p"),
 inpField = document.querySelector(".wrapper .input-field"),
 tryAgainBtn = document.querySelector(".content button"),
@@ -87,6 +88,12 @@ function resetGame() {
     mistakeTag.innerText = 0;
     cpmTag.innerText = 0;
 }
+function updateCounter(){
+    fetch('https://api.countapi.xyz/update/TypeTest/rafimoz/?amount=1')
+    .then(res => res.json())
+    .then(data => console.log("View="+data.value))
+}
+updateCounter();
 
 loadParagraph();
 inpField.addEventListener("input", initTyping);
